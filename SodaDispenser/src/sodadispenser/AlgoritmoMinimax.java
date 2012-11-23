@@ -25,7 +25,7 @@ public class AlgoritmoMinimax {
              
                if(esHoja(nodoActual)){
       
-                 //return nodoActual;
+                nodoActual.setUtilidad(Utilidad(nodoActual));
                  
              }else{
      
@@ -33,6 +33,7 @@ public class AlgoritmoMinimax {
                 ArrayList<Nodo> hijos = movimientoMaquina(nodoActual);
                // int movimiento = movimientoMaquina(nodoActual);
                 arbolMinimax.addAll(hijos);
+                
              }
 //             System.out.println("cordenadas"+nodoActual.getEstado().getPosicionActual());
         }
@@ -46,8 +47,28 @@ public class AlgoritmoMinimax {
     
     
     
+    public int Utilidad(Nodo nodo)
+    {
+    
+    if (nodo.Eshoja()&&nodo.getJugador().equals("MAX"))
+    {
+    
+    return -1;
+    }else return 1;
+        
+    
+    }
+    
+    
     public ArrayList<Nodo> movimientoMaquina(Nodo nodo){
-     ArrayList <Nodo> hijos=new ArrayList<Nodo>();
+     
+        
+        ArrayList <Nodo> hijos=new ArrayList<Nodo>();
+        
+        
+        
+        
+     
 //    if(cantidadLIitros!=1){
 //     
 //    
