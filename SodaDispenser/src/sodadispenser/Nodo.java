@@ -9,12 +9,11 @@ package sodadispenser;
  * @author fidelhpc
  */
 public class Nodo {
-   /* cantidad de litros para cada nodo y el nombre del jugador "MAX" O "MIN"
-      operador utilizado Toma1, Toma2, Toma3
-   */
-     int cantidadLitros, operador, utilidad;
-     String jugador;
-     
+     private int cantidadLitros;
+    private int operador;
+    private int utilidad;
+    private String jugador;
+    Nodo padre; 
      public Nodo(int cantidadLitros, String jugador, int operador, int utilidad ) {
     
        this.cantidadLitros=cantidadLitros;
@@ -22,6 +21,64 @@ public class Nodo {
        this.jugador=jugador;
        this.operador=operador;  
      }
+     
+     
+
+    /**
+     * @return the cantidadLitros
+     */
+    public int getCantidadLitros() {
+        return cantidadLitros;
+    }
+
+    /**
+     * @param cantidadLitros the cantidadLitros to set
+     */
+    public void setCantidadLitros(int cantidadLitros) {
+        this.cantidadLitros = cantidadLitros;
+    }
+
+    /**
+     * @return the operador
+     */
+    public int getOperador() {
+        return operador;
+    }
+
+    /**
+     * @param operador the operador to set
+     */
+    public void setOperador(int operador) {
+        this.operador = operador;
+    }
+
+    /**
+     * @return the utilidad
+     */
+    public int getUtilidad() {
+        return utilidad;
+    }
+
+    /**
+     * @param utilidad the utilidad to set
+     */
+    public void setUtilidad(int utilidad) {
+        this.utilidad = utilidad;
+    }
+
+    /**
+     * @return the jugador
+     */
+    public String getJugador() {
+        return jugador;
+    }
+
+    /**
+     * @param jugador the jugador to set
+     */
+    public void setJugador(String jugador) {
+        this.jugador = jugador;
+    }
     
     public boolean Eshoja()
     {
