@@ -23,6 +23,14 @@ public class Nodo {
        this.operador=operador;  
      }
     
+    public boolean Eshoja()
+    {
     
+    if(this.cantidadLitros==0)
+    {
+      return true;
+    } else return false;
+    
+    }
     
 }

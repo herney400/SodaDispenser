@@ -45,13 +45,13 @@ public class Gui extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695773_Fanta-1_128.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("/afs/eisc/user/pregrado/2010/gusagc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695773_Fanta-1_128.png")); // NOI18N
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353697312_Coca-Cola-Zero_128.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("/afs/eisc/user/pregrado/2010/gusagc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353697312_Coca-Cola-Zero_128.png")); // NOI18N
 
-        jButton4.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695804_Pepsi-Classic_128.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("/afs/eisc/user/pregrado/2010/gusagc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695804_Pepsi-Classic_128.png")); // NOI18N
 
-        jButton5.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/paso.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon("/afs/eisc/user/pregrado/2010/gusagc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/paso.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,7 +64,7 @@ public class Gui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +127,7 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
