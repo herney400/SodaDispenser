@@ -15,5 +15,21 @@ public class SodaDispenser {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+//        int h = 0,l  = 0;
+//        int arreglo[]=new int[10]; 
+//        
+//        for (int i = 10; i > 00; i--) {
+//            System.out.print("perras");
+//            if(i>5){
+//              h++;
+//              arreglo[i-1]=h;
+//            }else{
+//              l++;
+//            
+//            }
+//            
+//            
+//        }
+        
     }
 }

@@ -26,39 +26,37 @@ public class AlgoritmoMinimax {
             
              Nodo nodoActual=arbolMinimax.get(0);
              
+             if (aux=="Todos son hojas")
+             {
+               CalcularUtilidad();
+             
+             }
+             if(esHoja(nodoActual)){
+      
+                nodoActual.setUtilidad(Utilidad(nodoActual));                 
+             }else{     
+                arbolMinimax.remove(0);
+                ArrayList<Nodo> hijos = movimientoMaquina(nodoActual);
+               // int movimiento = movimientoMaquina(nodoActual);
+                arbolMinimax.addAll(hijos);                
+             }       
+//             System.out.println("cordenadas"+nodoActual.getEstado().getPosicionActual());
+        }
+        
+    }
+    
+    
+    public boolean verificaParada(){
+    
              for(int i=0; arbolMinimax.size()>=0;i++)  
              {
              
                  if(!(arbolMinimax.get(i).Eshoja()))
                  {
                  aux="No todos son hojas";
-                 }else aux="Todos son hojas";
-             
+                 }else aux="Todos son hojas";             
              }
-             
-             
-             if (aux=="Todos son hojas")
-             {
-             CalcularUtilidad();
-             
-             }
-             
-             
-             if(esHoja(nodoActual)){
-      
-                nodoActual.setUtilidad(Utilidad(nodoActual));
-                 
-             }else{
-     
-                arbolMinimax.remove(0);
-                ArrayList<Nodo> hijos = movimientoMaquina(nodoActual);
-               // int movimiento = movimientoMaquina(nodoActual);
-                arbolMinimax.addAll(hijos);
-                
-             }
-//             System.out.println("cordenadas"+nodoActual.getEstado().getPosicionActual());
-        }
-        
+    return true;
     }
     
     public boolean esHoja(Nodo nodo){
