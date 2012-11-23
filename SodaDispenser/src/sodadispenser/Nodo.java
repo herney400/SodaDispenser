@@ -9,8 +9,13 @@ package sodadispenser;
  * @author fidelhpc
  */
 public class Nodo {
-
-    public Nodo(int cantidadLitros) {
+   /* cantidad de litros para cada nodo y el nombre del jugador "MAX" O "MIN"
+      operador utilizado Toma1, Toma2, Toma3
+   */
+     int cantidadLitros, operador;
+    
+    
+    public Nodo(int cantidadLitros, String jugador, int operador, int utilidad ) {
     
     
     }
