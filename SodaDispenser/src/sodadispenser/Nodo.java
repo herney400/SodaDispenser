@@ -9,18 +9,24 @@ package sodadispenser;
  * @author fidelhpc
  */
 public class Nodo {
-     private int cantidadLitros;
+    
+    private int cantidadLitros;
     private int operador;
     private int utilidad;
     private String jugador;
     Nodo padre; 
-     public Nodo(int cantidadLitros, String jugador, int operador, int utilidad ) {
+     public Nodo(int cantidadLitros, String jugador, int operador, int utilidad, Nodo padre ) {
     
        this.cantidadLitros=cantidadLitros;
        this.utilidad=utilidad;
        this.jugador=jugador;
-       this.operador=operador;  
+       this.operador=operador; 
+       this.padre=padre;
+       
      }
+
+    public Nodo() {
+    }
      
      
 
