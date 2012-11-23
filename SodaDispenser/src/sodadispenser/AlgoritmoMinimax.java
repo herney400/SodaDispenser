@@ -12,6 +12,7 @@ import sodadispenser.Nodo.*;
  */
 public class AlgoritmoMinimax {
      ArrayList<Nodo> arbolMinimax;
+     String aux;
      
     public AlgoritmoMinimax() {
     
@@ -20,10 +21,30 @@ public class AlgoritmoMinimax {
     public void crearArbol(Nodo nodo){
     
         while(!(arbolMinimax.isEmpty())){
-             
+            
+            
+            
              Nodo nodoActual=arbolMinimax.get(0);
              
-               if(esHoja(nodoActual)){
+             for(int i=0; arbolMinimax.size()>=0;i++)  
+             {
+             
+                 if(!(arbolMinimax.get(i).Eshoja()))
+                 {
+                 aux="No todos son hojas";
+                 }else aux="Todos son hojas";
+             
+             }
+             
+             
+             if (aux=="Todos son hojas")
+             {
+             CalcularUtilidad();
+             
+             }
+             
+             
+             if(esHoja(nodoActual)){
       
                 nodoActual.setUtilidad(Utilidad(nodoActual));
                  
@@ -57,6 +78,16 @@ public class AlgoritmoMinimax {
     }else return 1;
         
     
+    }
+    
+    
+    public void CalcularUtilidad()
+            
+    {
+    
+    
+        
+        
     }
     
     
