@@ -5,7 +5,7 @@
 package sodadispenser;
 
 import java.util.ArrayList;
-
+import sodadispenser.Nodo.*;
 /**
  *
  * @author fidelhpc
@@ -46,8 +46,8 @@ public class AlgoritmoMinimax {
     
     
     
-    public Nodo movimientoMaquina(Nodo nodo){
-    
+    public ArrayList<Nodo> movimientoMaquina(Nodo nodo){
+     ArrayList <Nodo> hijos=new ArrayList<Nodo>();
 //    if(cantidadLIitros!=1){
 //     
 //    
@@ -56,7 +56,7 @@ public class AlgoritmoMinimax {
 //        
 //        
 //        
-    return nodo;
+    return hijos;
     }
     
     
