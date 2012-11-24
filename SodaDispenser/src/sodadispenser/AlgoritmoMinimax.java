@@ -22,66 +22,43 @@ public class AlgoritmoMinimax {
     }
     
     public void crearArbol(Nodo nodo){
-    
-        while(!(arbolMinimax.isEmpty())){
+      Nodo nodoRaiz=nodo;
+      String jugadaMax="";
+      while(!(arbolMinimax.isEmpty())){
              Nodo nodoActual=arbolMinimax.get(0);
              
              arbol.put(nodoActual.getProfundida(), nodoActual);
              
-             if(nodoActual.Eshoja()){
-                nodoActual.setUtilidad(Utilidad(nodoActual));  
-                arbolMinimax.remove(0);
-             }else{     
-                   arbolMinimax.remove(0);
-                   ArrayList<Nodo> hijos = movimientoMaquina(nodoActual);
-             
-                   arbolMinimax.addAll(hijos);                
+             if(!nodoActual.Eshoja()){
+                
+                 arbolMinimax.remove(0);
+                  ArrayList<Nodo> hijos = nodoActual.movimientoMaquina();             
+                  arbolMinimax.addAll(hijos);
+             }else{  /* Si el que hizo la primera jugada #nodoRaiz es MAX el #nodoActual es MAx y esta por
+                      * jugar pero se encontro que es una hoja entonces se determina la utilidad entre -1 y 1 
+                      */   
+                    if(nodoRaiz.getJugador().equals("MAX")&&nodoActual.getJugador().equals("MAX")){
+                      nodoActual.setUtilidad(1);                   
+                    }else{
+                      nodoActual.setUtilidad(-1); 
+
+                    }
+                                     
                  }       
         }
-        
+      jugadaMax=CalculaDesicionminimax(arbol);   
     }
     
-    
-    public boolean verificaParada(){
-    
-             for(int i=0; arbolMinimax.size()>=0;i++)  
-             {
-             
-                 if(!(arbolMinimax.get(i).Eshoja()))
-                 {
-                 aux="No todos son hojas";
-                 }else aux="Todos son hojas";             
-             }
-      return true;
-    }
-    
-  
-    
-    
-    
-    public int Utilidad(Nodo nodo)
-    {
-    
-    if (nodo.Eshoja()&&nodo.getJugador().equals("MAX"))
-    {
-    
-    return -1;
-    }else return 1;
-        
-    
-    }
-    
-    
-    public void CalcularUtilidad()
-            
-    {
-    
+    public String CalculaDesicionminimax(Hashtable arbolCompleto){
     
         
         
+        
+        
+        
+        
+    return " ";
     }
-    
-    
     public ArrayList<Nodo> movimientoMaquina(Nodo nodo){
      
         

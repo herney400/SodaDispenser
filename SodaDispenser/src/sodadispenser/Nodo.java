@@ -4,6 +4,8 @@
  */
 package sodadispenser;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author fidelhpc
@@ -11,19 +13,19 @@ package sodadispenser;
 public class Nodo {
     
     private int cantidadLitros;
-    private int operador;
+    private String operador;
     private int utilidad;
-    private String jugador;
+    private String tipojugador;
     boolean noneMin;
     boolean noenMax;
     Nodo padre; 
     private int profundida;
-     public Nodo(int cantidadLitros, String jugador, int operador,int profundida,
-                 int utilidad, Nodo padre, boolean  noneMin, boolean noneMax) {
+     public Nodo(int cantidadLitros, String jugador, String operador,int profundida,
+                /* int utilidad,*/ Nodo padre, boolean  noneMin, boolean noneMax) {
     
        this.cantidadLitros=cantidadLitros;
        this.utilidad=utilidad;
-       this.jugador=jugador;
+       this.tipojugador=jugador;
        this.operador=operador; 
        this.padre=padre;
        this.noneMin=noneMin;
@@ -31,17 +33,49 @@ public class Nodo {
        this.profundida=profundida;
      }
 
-    public Nodo(int cantidadLitros, String jugador, int operador, int profundidad,
+    public Nodo(int cantidadLitros, String jugador, String operador, int profundidad,
                 int utilidad,  boolean  noneMin, boolean noneMax) {
     
        this.cantidadLitros=cantidadLitros;
        this.utilidad=utilidad;
-       this.jugador=jugador;
+       this.tipojugador=jugador;
        this.operador=operador;      
        this.noneMin=noneMin;
        this.noenMax=noneMax;
        this.profundida=profundidad;
      }
+     public ArrayList<Nodo> movimientoMaquina(){
+        String tipo= this.getJugador();
+        String tipoinicialjugador="incognito";
+        ArrayList <Nodo> hijos=new ArrayList<Nodo>();
+        
+        if(tipo.equals("MAX")){
+            tipoinicialjugador="MIN";
+        
+        }else if(tipo.equals("MIN")){
+            tipoinicialjugador="MAX";
+        }
+        
+        if(cantidadLitros>=3){
+           Nodo hijo1 = new Nodo(cantidadLitros-3, tipoinicialjugador, "3l", profundida+1,  /*utilidad,*/ this, noneMin, noneMin);
+           hijos.add(hijo1);
+          
+        }else if(cantidadLitros>=2){
+           Nodo hijo2=new Nodo(cantidadLitros-2, tipoinicialjugador, "2l", profundida+1, /*utilidad, */this, noneMin, noneMin);
+           hijos.add(hijo2);
+        }else if(cantidadLitros>=1){
+           Nodo hijo3=new Nodo(cantidadLitros-1, tipoinicialjugador, "1l", profundida+1, this, noneMin, noneMin) ;
+           hijos.add(hijo3);
+        }else if(cantidadLitros>0){
+            if(tipo.equals("MIN")&& !noneMin){
+            
+            
+            }
+        
+        }
+        
+    return hijos;
+    }
 
      
      
@@ -63,14 +97,14 @@ public class Nodo {
     /**
      * @return the operador
      */
-    public int getOperador() {
+    public String getOperador() {
         return operador;
     }
 
     /**
      * @param operador the operador to set
      */
-    public void setOperador(int operador) {
+    public void setOperador(String operador) {
         this.operador = operador;
     }
 
@@ -92,14 +126,14 @@ public class Nodo {
      * @return the jugador
      */
     public String getJugador() {
-        return jugador;
+        return tipojugador;
     }
 
     /**
      * @param jugador the jugador to set
      */
     public void setJugador(String jugador) {
-        this.jugador = jugador;
+        this.tipojugador = jugador;
     }
     
     public boolean Eshoja()
