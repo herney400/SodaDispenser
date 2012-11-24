@@ -5,6 +5,7 @@
 package sodadispenser;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import sodadispenser.Nodo.*;
 /**
  *
@@ -12,6 +13,8 @@ import sodadispenser.Nodo.*;
  */
 public class AlgoritmoMinimax {
      ArrayList<Nodo> arbolMinimax;
+     
+     Hashtable arbol = new Hashtable();
      String aux;
      
     public AlgoritmoMinimax() {
@@ -21,26 +24,19 @@ public class AlgoritmoMinimax {
     public void crearArbol(Nodo nodo){
     
         while(!(arbolMinimax.isEmpty())){
-            
-            
-            
              Nodo nodoActual=arbolMinimax.get(0);
              
-             if (aux=="Todos son hojas")
-             {
-               CalcularUtilidad();
+             arbol.put(nodoActual.getProfundida(), nodoActual);
              
-             }
-             if(esHoja(nodoActual)){
-      
-                nodoActual.setUtilidad(Utilidad(nodoActual));                 
-             }else{     
+             if(nodoActual.Eshoja()){
+                nodoActual.setUtilidad(Utilidad(nodoActual));  
                 arbolMinimax.remove(0);
-                ArrayList<Nodo> hijos = movimientoMaquina(nodoActual);
-               // int movimiento = movimientoMaquina(nodoActual);
-                arbolMinimax.addAll(hijos);                
-             }       
-//             System.out.println("cordenadas"+nodoActual.getEstado().getPosicionActual());
+             }else{     
+                   arbolMinimax.remove(0);
+                   ArrayList<Nodo> hijos = movimientoMaquina(nodoActual);
+             
+                   arbolMinimax.addAll(hijos);                
+                 }       
         }
         
     }
@@ -56,13 +52,10 @@ public class AlgoritmoMinimax {
                  aux="No todos son hojas";
                  }else aux="Todos son hojas";             
              }
-    return true;
+      return true;
     }
     
-    public boolean esHoja(Nodo nodo){
-    
-    return true;
-    }
+  
     
     
     
@@ -94,7 +87,16 @@ public class AlgoritmoMinimax {
         
         ArrayList <Nodo> hijos=new ArrayList<Nodo>();
         
+        if(nodo.getCantidadLitros()>=3){
         
+        
+        }else if(nodo.getCantidadLitros()>=2){
+        
+        
+        }else if(nodo.getCantidadLitros()>=1){
+        
+        }
+    
         
         
      

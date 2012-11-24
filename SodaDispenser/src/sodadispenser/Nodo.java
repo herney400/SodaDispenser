@@ -14,19 +14,35 @@ public class Nodo {
     private int operador;
     private int utilidad;
     private String jugador;
+    boolean noneMin;
+    boolean noenMax;
     Nodo padre; 
-     public Nodo(int cantidadLitros, String jugador, int operador, int utilidad, Nodo padre ) {
+    private int profundida;
+     public Nodo(int cantidadLitros, String jugador, int operador,int profundida,
+                 int utilidad, Nodo padre, boolean  noneMin, boolean noneMax) {
     
        this.cantidadLitros=cantidadLitros;
        this.utilidad=utilidad;
        this.jugador=jugador;
        this.operador=operador; 
        this.padre=padre;
-       
+       this.noneMin=noneMin;
+       this.noenMax=noneMax;
+       this.profundida=profundida;
      }
 
-    public Nodo() {
-    }
+    public Nodo(int cantidadLitros, String jugador, int operador, int profundidad,
+                int utilidad,  boolean  noneMin, boolean noneMax) {
+    
+       this.cantidadLitros=cantidadLitros;
+       this.utilidad=utilidad;
+       this.jugador=jugador;
+       this.operador=operador;      
+       this.noneMin=noneMin;
+       this.noenMax=noneMax;
+       this.profundida=profundidad;
+     }
+
      
      
 
@@ -92,8 +108,16 @@ public class Nodo {
     if(this.cantidadLitros==0)
     {
       return true;
-    } else return false;
+    } else 
+      return false;
     
+    }
+
+    /**
+     * @return the profundida
+     */
+    public int getProfundida() {
+        return profundida;
     }
     
 }

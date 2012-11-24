@@ -45,13 +45,13 @@ public class Gui extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/afs/eisc/user/pregrado/2010/gusagc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695773_Fanta-1_128.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("/home/palacios-cuacialpud/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695773_Fanta-1_128.png")); // NOI18N
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/afs/eisc/user/pregrado/2010/gusagc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353697312_Coca-Cola-Zero_128.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("/home/palacios-cuacialpud/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353697312_Coca-Cola-Zero_128.png")); // NOI18N
 
-        jButton4.setIcon(new javax.swing.ImageIcon("/afs/eisc/user/pregrado/2010/gusagc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695804_Pepsi-Classic_128.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("/home/palacios-cuacialpud/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695804_Pepsi-Classic_128.png")); // NOI18N
 
-        jButton5.setIcon(new javax.swing.ImageIcon("/afs/eisc/user/pregrado/2010/gusagc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/paso.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon("/home/palacios-cuacialpud/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/paso.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
