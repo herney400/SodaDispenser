@@ -24,7 +24,7 @@ public class Nodo {
                 /* int utilidad,*/ Nodo padre, boolean  noneMin, boolean noneMax) {
     
        this.cantidadLitros=cantidadLitros;
-       this.utilidad=utilidad;
+     //  this.utilidad=utilidad;
        this.tipojugador=jugador;
        this.operador=operador; 
        this.padre=padre;
@@ -33,16 +33,15 @@ public class Nodo {
        this.profundida=profundida;
      }
 
-    public Nodo(int cantidadLitros, String jugador, String operador, int profundidad,
-                int utilidad,  boolean  noneMin, boolean noneMax) {
+    public Nodo(int cantidadLitros, String jugador, boolean  noneMin, boolean noneMax) {
     
        this.cantidadLitros=cantidadLitros;
-       this.utilidad=utilidad;
+      // this.utilidad=utilidad;
        this.tipojugador=jugador;
        this.operador=operador;      
        this.noneMin=noneMin;
        this.noenMax=noneMax;
-       this.profundida=profundidad;
+       
      }
      public ArrayList<Nodo> movimientoMaquina(){
         String tipo= this.getJugador();
@@ -60,13 +59,13 @@ public class Nodo {
            Nodo hijo1 = new Nodo(cantidadLitros-3, tipoinicialjugador, "3l", profundida+1,  /*utilidad,*/ this, noneMin, noneMin);
            hijos.add(hijo1);
           
-        }else if(cantidadLitros>=2){
+        } if(cantidadLitros>=2){
            Nodo hijo2=new Nodo(cantidadLitros-2, tipoinicialjugador, "2l", profundida+1, /*utilidad, */this, noneMin, noneMin);
            hijos.add(hijo2);
-        }else if(cantidadLitros>=1){
+        } if(cantidadLitros>=1){
            Nodo hijo3=new Nodo(cantidadLitros-1, tipoinicialjugador, "1l", profundida+1, this, noneMin, noneMin) ;
            hijos.add(hijo3);
-        }else if(cantidadLitros>0){
+        } if(cantidadLitros>0){
             if(tipo.equals("MIN")&& !noneMin){
             
             
