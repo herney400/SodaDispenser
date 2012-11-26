@@ -15,11 +15,11 @@ public class Nodo {
     private int cantidadLitros;
     private String operador;
     private int utilidad;
-    private String tipojugador;
+    private String tipojugador;/*MAX o MIN*/
     boolean noneMin;
     boolean noenMax;
-    Nodo padre; 
-    //public Nodo[] hijos;
+    private Nodo padre; 
+   
      ArrayList<Nodo> hijos = new ArrayList<>();    
     private int profundida;
      public Nodo(int cantidadLitros, String jugador, String operador,int profundida,
@@ -33,6 +33,15 @@ public class Nodo {
        this.noneMin=noneMin;
        this.noenMax=noneMax;
        this.profundida=profundida;
+       
+       if(jugador.equals("MAX")){
+          this.setUtilidad(Integer.MIN_VALUE);
+       
+       }else{
+          this.setUtilidad(Integer.MAX_VALUE);
+       }
+      
+     
      }
 
     public Nodo(int cantidadLitros, String jugador, boolean  noneMin, boolean noneMax) {
@@ -43,6 +52,13 @@ public class Nodo {
        this.operador=operador;      
        this.noneMin=noneMin;
        this.noenMax=noneMax;
+       
+       if(jugador.equals("MAX")){
+          this.setUtilidad(Integer.MIN_VALUE);
+       
+       }else{
+          this.setUtilidad(Integer.MAX_VALUE);
+       }
        
      }
      public ArrayList<Nodo> movimientoMaquina(){
@@ -69,7 +85,7 @@ public class Nodo {
            hijos.add(hijo3);
         } if(cantidadLitros>0){
             if(tipo.equals("MIN")&& !noneMin){
-            
+              
             
             }
         
@@ -154,6 +170,20 @@ public class Nodo {
      */
     public int getProfundida() {
         return profundida;
+    }
+
+    /**
+     * @return the padre
+     */
+    public Nodo getPadre() {
+        return padre;
+    }
+
+    /**
+     * @param padre the padre to set
+     */
+    public void setPadre(Nodo padre) {
+        this.padre = padre;
     }
     
 }

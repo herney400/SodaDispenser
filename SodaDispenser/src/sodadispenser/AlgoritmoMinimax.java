@@ -12,14 +12,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import sodadispenser.Nodo.*;
-/**
- *
+/*  
  * @author fidelhpc
  */
 public class AlgoritmoMinimax {
      ArrayList<Nodo> arbolMinimax= new ArrayList<>();
      ArrayList<Nodo> arbolCompleto= new ArrayList<>();     
      MultiHashtable arbol=new MultiHashtable();
+     
      String aux;
      
     public AlgoritmoMinimax() {
@@ -29,12 +29,13 @@ public class AlgoritmoMinimax {
     public void crearArbol(Nodo nodo){
       Nodo nodoRaiz=nodo;
       arbolMinimax.add(nodo);
+     // arbolCompleto.add(nodo);
       String jugadaMax="";
       
       while(!(arbolMinimax.isEmpty())){
              Nodo nodoActual=arbolMinimax.get(0);             
              arbolCompleto.add(nodoActual);
-             arbol.put(nodoActual.getProfundida(), nodoActual);
+            // arbol.put(nodoActual.getProfundida(), nodoActual);
              if(!nodoActual.Eshoja()){                
                   arbolMinimax.remove(0);
                   ArrayList<Nodo> hijo = nodoActual.movimientoMaquina();             
@@ -52,50 +53,38 @@ public class AlgoritmoMinimax {
                     }                                     
                  }       
         }
-      
-      
-      
-      jugadaMax=CalculaDesicionminimax(arbol);   
+      jugadaMax=CalculaDesicionminimax(arbolCompleto);   
     }
     
-    public String CalculaDesicionminimax(MultiHashtable arbolCompleto){
-    
-//      List llaves= (List) arbolCompleto.keySet();
-       
-        
-        
-        
-        
-    return " ";
-    }
-    public ArrayList<Nodo> movimientoMaquina(Nodo nodo){
-     
-        
-        ArrayList <Nodo> hijos=new ArrayList<Nodo>();
-        
-        if(nodo.getCantidadLitros()>=3){
-        
-        
-        }else if(nodo.getCantidadLitros()>=2){
-        
-        
-        }else if(nodo.getCantidadLitros()>=1){
-        
-        }
-    
-        
-        
-     
-//    if(cantidadLIitros!=1){
-//     
-//    
-//    }
-//        
-//        
-//        
-//        
-    return hijos;
-    }
+    public String CalculaDesicionminimax(ArrayList<Nodo> arbolCompleto){
+      //  Nodo conMejorUt;   
+         for(int i=arbolCompleto.size()-1;i>0;i--){
+            
+             Nodo n = arbolCompleto.get(i);
+             
+             if(n.getPadre().getJugador().equals("MAX")){
+                if(n.getPadre().getUtilidad()<n.getUtilidad()){
+                    n.getPadre().setUtilidad(n.getUtilidad());
+                }                
+             }else{
+                if(n.getPadre().getUtilidad()>n.getUtilidad()){
+                    n.getPadre().setUtilidad(n.getUtilidad());
+                }
+             }
+             arbolCompleto.remove(i);             
+         }
+         
+         Nodo raiz = arbolCompleto.get(0);
+         Nodo var = raiz.hijos.get(0);
+         for(int i=1;i<raiz.hijos.size();i++){             
+            if(var.getUtilidad()<raiz.hijos.get(i).getUtilidad()){
+                var = raiz.hijos.get(i);
+             }
+         }    
+         
+    return var.getOperador();
+}
+   
     
     
     
