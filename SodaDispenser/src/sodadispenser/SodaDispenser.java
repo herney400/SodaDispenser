@@ -15,7 +15,7 @@ public class SodaDispenser {
      */
     public static void main(String[] args) {
   AlgoritmoMinimax alg = new AlgoritmoMinimax();
-        alg.crearArbol(new Nodo(4,"MIN", true, true));
+        alg.crearArbol(new Nodo(4,"MAX", true, true));
   
   
     }

@@ -19,6 +19,8 @@ public class Nodo {
     boolean noneMin;
     boolean noenMax;
     Nodo padre; 
+    //public Nodo[] hijos;
+     ArrayList<Nodo> hijos = new ArrayList<>();    
     private int profundida;
      public Nodo(int cantidadLitros, String jugador, String operador,int profundida,
                 /* int utilidad,*/ Nodo padre, boolean  noneMin, boolean noneMax) {
@@ -72,6 +74,7 @@ public class Nodo {
             }
         
         }
+        
         
     return hijos;
     }

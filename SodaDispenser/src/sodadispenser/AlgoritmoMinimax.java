@@ -4,9 +4,13 @@
  */
 package sodadispenser;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.MultiHashtable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import sodadispenser.Nodo.*;
 /**
  *
@@ -14,8 +18,8 @@ import sodadispenser.Nodo.*;
  */
 public class AlgoritmoMinimax {
      ArrayList<Nodo> arbolMinimax= new ArrayList<>();
-     
-     Hashtable arbol = new Hashtable();
+     ArrayList<Nodo> arbolCompleto= new ArrayList<>();     
+     MultiHashtable arbol=new MultiHashtable();
      String aux;
      
     public AlgoritmoMinimax() {
@@ -26,14 +30,16 @@ public class AlgoritmoMinimax {
       Nodo nodoRaiz=nodo;
       arbolMinimax.add(nodo);
       String jugadaMax="";
+      
       while(!(arbolMinimax.isEmpty())){
              Nodo nodoActual=arbolMinimax.get(0);             
+             arbolCompleto.add(nodoActual);
              arbol.put(nodoActual.getProfundida(), nodoActual);
-             
              if(!nodoActual.Eshoja()){                
                   arbolMinimax.remove(0);
-                  ArrayList<Nodo> hijos = nodoActual.movimientoMaquina();             
-                  arbolMinimax.addAll(hijos);
+                  ArrayList<Nodo> hijo = nodoActual.movimientoMaquina();             
+                  arbolMinimax.addAll(hijo);
+                  nodoActual.hijos=hijo;
              }else{  /* Si el que hizo la primera jugada #nodoRaiz es MAX el #nodoActual es MAx y esta por
                       * jugar pero se encontro que es una hoja entonces se determina la utilidad entre -1 y 1 
                       */   
@@ -42,18 +48,20 @@ public class AlgoritmoMinimax {
                       arbolMinimax.remove(0);
                     }else{
                       nodoActual.setUtilidad(-1); 
-                      arbolMinimax.get(0);
-                    }
-                                     
+                      arbolMinimax.remove(0);
+                    }                                     
                  }       
         }
+      
+      
+      
       jugadaMax=CalculaDesicionminimax(arbol);   
     }
     
     public String CalculaDesicionminimax(Hashtable arbolCompleto){
     
       List llaves= (List) arbolCompleto.keySet();
-        
+       
         
         
         
