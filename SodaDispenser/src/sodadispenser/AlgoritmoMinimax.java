@@ -58,9 +58,9 @@ public class AlgoritmoMinimax {
       jugadaMax=CalculaDesicionminimax(arbol);   
     }
     
-    public String CalculaDesicionminimax(Hashtable arbolCompleto){
+    public String CalculaDesicionminimax(MultiHashtable arbolCompleto){
     
-      List llaves= (List) arbolCompleto.keySet();
+//      List llaves= (List) arbolCompleto.keySet();
        
         
         
