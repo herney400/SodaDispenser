@@ -8,6 +8,9 @@ import javax.swing.JOptionPane;
 public class Gui extends javax.swing.JFrame {
     private int cantidadLitros;
     private String operador;
+    
+    private  boolean noneMin=false;
+    private  boolean  noneMax=false;
     public Gui() {
         initComponents();
     }
@@ -65,6 +68,11 @@ public class Gui extends javax.swing.JFrame {
         });
 
         none.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/paso.png")); // NOI18N
+        none.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noneActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -211,7 +219,7 @@ public class Gui extends javax.swing.JFrame {
             if((cantidadLitros-cantidad)!=0)
             {    
                 cantidadLitros-=cantidad;
-                operador = alg.crearArbol(new Nodo(cantidadLitros,"MAX", true, true));
+                operador = alg.crearArbol(new Nodo(cantidadLitros,"MAX", noneMin, noneMax));
                 if(operador.equals("1l"))
                 {    
                     cantidadLitros-=1;
@@ -228,6 +236,15 @@ public class Gui extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Toma 3 litros");
                 }                    
                 JOptionPane.showMessageDialog(null,"Cantidad Disponible: "+cantidadLitros);
+                if(operador.equals("noneMax")){
+                   JOptionPane.showMessageDialog(null,"Paso");
+                /*
+                 
+                     
+                 */
+                
+                }
+                
             }
             else
                 JOptionPane.showMessageDialog(null,"Fin - Gana Máquina");
@@ -245,6 +262,11 @@ public class Gui extends javax.swing.JFrame {
     private void litro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_litro3ActionPerformed
         cantidadLitros(3);
     }//GEN-LAST:event_litro3ActionPerformed
+
+    private void noneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noneActionPerformed
+        cantidadLitros(cantidadLitros);
+        noneMin=true;
+    }//GEN-LAST:event_noneActionPerformed
           
     /**
      * @param args the command line arguments

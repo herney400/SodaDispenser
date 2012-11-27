@@ -156,6 +156,9 @@
               <Image iconType="2" name="/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/paso.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noneActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

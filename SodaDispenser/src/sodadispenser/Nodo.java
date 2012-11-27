@@ -74,19 +74,22 @@ public class Nodo {
         }
         
         if(cantidadLitros>=3){
-           Nodo hijo1 = new Nodo(cantidadLitros-3, tipoinicialjugador, "3l", profundida+1,  /*utilidad,*/ this, noneMin, noneMin);
+           Nodo hijo1 = new Nodo(cantidadLitros-3, tipoinicialjugador, "3l", profundida+1,  /*utilidad,*/ this, noneMin, noenMax);
            hijos.add(hijo1);
           
         } if(cantidadLitros>=2){
-           Nodo hijo2=new Nodo(cantidadLitros-2, tipoinicialjugador, "2l", profundida+1, /*utilidad, */this, noneMin, noneMin);
+           Nodo hijo2=new Nodo(cantidadLitros-2, tipoinicialjugador, "2l", profundida+1, /*utilidad, */this, noneMin, noenMax);
            hijos.add(hijo2);
         } if(cantidadLitros>=1){
-           Nodo hijo3=new Nodo(cantidadLitros-1, tipoinicialjugador, "1l", profundida+1, this, noneMin, noneMin) ;
+           Nodo hijo3=new Nodo(cantidadLitros-1, tipoinicialjugador, "1l", profundida+1, this, noneMin, noenMax) ;
            hijos.add(hijo3);
         } if(cantidadLitros>0){
             if(tipo.equals("MIN")&& !noneMin){
-              
-            
+               Nodo hijo=new Nodo(cantidadLitros,tipoinicialjugador, "noneMin", profundida+1, this, !noneMin, noenMax); 
+               hijos.add(hijo);
+            }if(tipo.equals("MAX")&&!noenMax){
+               Nodo hijo=new Nodo(cantidadLitros,tipoinicialjugador, "noneMax", profundida+1, this, noneMin, !noenMax);
+               hijos.add(hijo);
             }
         
         }
