@@ -3,12 +3,11 @@
  * and open the template in the editor.
  */
 package sodadispenser;
-
 import javax.swing.JOptionPane;
 
 public class Gui extends javax.swing.JFrame {
-
-    private int cantidad, cantidadLitros;
+    private int cantidadLitros;
+    private String operador;
     public Gui() {
         initComponents();
     }
@@ -195,47 +194,58 @@ public class Gui extends javax.swing.JFrame {
              cantidadLitros(0);             
         }else{
             JOptionPane.showMessageDialog(null, "Juega Humano"); //Sello
-            cantidadLitros=cantidadLitros-cantidad;
         }   
         moneda = 0.0;
     }//GEN-LAST:event_jButton6ActionPerformed
 
     public void cantidadLitros(int cantidad)
     {
-        cantidadLitros -=cantidad;
-        while(cantidadLitros>0)
+        if(cantidad>cantidadLitros)
+        {    
+            JOptionPane.showMessageDialog(null,"Debe escoger un numero menor a "+cantidadLitros);        
+            return;
+        }    
+        if(cantidadLitros>0)
         {
             AlgoritmoMinimax alg = new AlgoritmoMinimax();
-            alg.crearArbol(new Nodo(cantidadLitros-cantidad,"MAX", true, true));
-            cantidadLitros=cantidadLitros-cantidad;
+            if((cantidadLitros-cantidad)!=0)
+            {    
+                cantidadLitros-=cantidad;
+                operador = alg.crearArbol(new Nodo(cantidadLitros,"MAX", true, true));
+                if(operador.equals("1l"))
+                {    
+                    cantidadLitros-=1;
+                    JOptionPane.showMessageDialog(null,"Toma 1 litro");
+                }    
+                if(operador.equals("2l"))
+                {    
+                    cantidadLitros-=2;
+                    JOptionPane.showMessageDialog(null,"Toma 2 litros");
+                }    
+                if(operador.equals("3l"))
+                {
+                    cantidadLitros-=3;      
+                    JOptionPane.showMessageDialog(null,"Toma 3 litros");
+                }                    
+                JOptionPane.showMessageDialog(null,"Cantidad Disponible: "+cantidadLitros);
+            }
+            else
+                JOptionPane.showMessageDialog(null,"Fin - Gana Máquina");
         }
-        if(cantidadLitros==0)
-            JOptionPane.showMessageDialog(null,"Ganador: Humano");
-        else
-            JOptionPane.showMessageDialog(null,"Ganador: Máquina");
     }        
     
     private void litro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_litro1ActionPerformed
-        cantidad = 1;
-        cantidadLitros(cantidad);
+        cantidadLitros(1);
     }//GEN-LAST:event_litro1ActionPerformed
 
     private void litro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_litro2ActionPerformed
-        cantidad = 2;
-        cantidadLitros(cantidad);
+        cantidadLitros(2);
     }//GEN-LAST:event_litro2ActionPerformed
 
     private void litro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_litro3ActionPerformed
-        cantidad = 3;
-        cantidadLitros(cantidad);
+        cantidadLitros(3);
     }//GEN-LAST:event_litro3ActionPerformed
-
-    public void setCantidad(int cantidadLitros)
-    {
-        this.cantidad = cantidad;
-        cantidadLitros(cantidad);        
-    }        
-    
+          
     /**
      * @param args the command line arguments
      */

@@ -26,7 +26,7 @@ public class AlgoritmoMinimax {
     
     }
     
-    public void crearArbol(Nodo nodo){
+    public String crearArbol(Nodo nodo){
       Nodo nodoRaiz=nodo;
       arbolMinimax.add(nodo);
      // arbolCompleto.add(nodo);
@@ -53,7 +53,7 @@ public class AlgoritmoMinimax {
                     }                                     
                  }       
         }
-      jugadaMax=CalculaDesicionminimax(arbolCompleto);   
+     return jugadaMax=CalculaDesicionminimax(arbolCompleto);   
     }
     
     public String CalculaDesicionminimax(ArrayList<Nodo> arbolCompleto){
