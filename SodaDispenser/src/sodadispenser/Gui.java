@@ -46,28 +46,25 @@ public class Gui extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        litro1.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695773_Fanta-1_128.png")); // NOI18N
         litro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 litro1ActionPerformed(evt);
             }
         });
 
-        litro2.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353697312_Coca-Cola-Zero_128.png")); // NOI18N
+        litro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1353695773_Fanta-1_128.png"))); // NOI18N
         litro2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 litro2ActionPerformed(evt);
             }
         });
 
-        litro3.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/1353695804_Pepsi-Classic_128.png")); // NOI18N
         litro3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 litro3ActionPerformed(evt);
             }
         });
 
-        none.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/paso.png")); // NOI18N
         none.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 noneActionPerformed(evt);
@@ -134,7 +131,6 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButton6.setIcon(new javax.swing.ImageIcon("/afs/eisc.univalle.edu.co/user/pregrado/2008/fidelhpc/NetBeansProjects/SodaDispenser/SodaDispenser/src/Images/money.png")); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -210,11 +206,11 @@ public class Gui extends javax.swing.JFrame {
     {
         if(cantidad>cantidadLitros)
         {    
-            JOptionPane.showMessageDialog(null,"Debe escoger un numero menor a "+cantidadLitros);        
+            JOptionPane.showMessageDialog(null,"Debe tomar una cantidad menor o igual a "+cantidadLitros);        
             return;
         }    
         if(cantidadLitros>0)
-        {
+        {            
             AlgoritmoMinimax alg = new AlgoritmoMinimax();
             if((cantidadLitros-cantidad)!=0)
             {    
@@ -223,28 +219,22 @@ public class Gui extends javax.swing.JFrame {
                 if(operador.equals("1l"))
                 {    
                     cantidadLitros-=1;
-                    JOptionPane.showMessageDialog(null,"Toma 1 litro");
+                    JOptionPane.showMessageDialog(null,"Máquina toma 1 litro");
                 }    
                 if(operador.equals("2l"))
                 {    
                     cantidadLitros-=2;
-                    JOptionPane.showMessageDialog(null,"Toma 2 litros");
+                    JOptionPane.showMessageDialog(null,"Máquina toma 2 litros");
                 }    
                 if(operador.equals("3l"))
                 {
                     cantidadLitros-=3;      
-                    JOptionPane.showMessageDialog(null,"Toma 3 litros");
+                    JOptionPane.showMessageDialog(null,"Máquina toma 3 litros");
                 }                    
                 JOptionPane.showMessageDialog(null,"Cantidad Disponible: "+cantidadLitros);
                 if(operador.equals("noneMax")){
                    JOptionPane.showMessageDialog(null,"Paso");
-                /*
-                 
-                     
-                 */
-                
-                }
-                
+                }                
             }
             else
                 JOptionPane.showMessageDialog(null,"Fin - Gana Máquina");
@@ -252,14 +242,20 @@ public class Gui extends javax.swing.JFrame {
     }        
     
     private void litro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_litro1ActionPerformed
-        cantidadLitros(1);
+        JOptionPane.showMessageDialog(null,"Tomaste 1 litro");
+        JOptionPane.showMessageDialog(null,"Cantidad Disponible "+(cantidadLitros-1));
+        cantidadLitros(1);        
     }//GEN-LAST:event_litro1ActionPerformed
 
     private void litro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_litro2ActionPerformed
+        JOptionPane.showMessageDialog(null,"Tomaste 2 litros");
+        JOptionPane.showMessageDialog(null,"Cantidad Disponible "+(cantidadLitros-2));
         cantidadLitros(2);
     }//GEN-LAST:event_litro2ActionPerformed
 
     private void litro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_litro3ActionPerformed
+        JOptionPane.showMessageDialog(null,"Tomaste 3 litros");
+        JOptionPane.showMessageDialog(null,"Cantidad Disponible "+(cantidadLitros-3));
         cantidadLitros(3);
     }//GEN-LAST:event_litro3ActionPerformed
 
